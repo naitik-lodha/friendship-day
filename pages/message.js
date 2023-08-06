@@ -1,8 +1,8 @@
 // pages/message.js
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { getRandomMessage } from '../utils/messages';
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { getRandomMessage } from "../utils/messages";
 
 export default function Message() {
   const router = useRouter();
@@ -18,9 +18,9 @@ export default function Message() {
 
     try {
       navigator.clipboard.writeText(url);
-      alert('URL copied to clipboard!');
+      alert("URL copied to clipboard!");
     } catch (error) {
-      console.error('Unable to copy URL:', error);
+      console.error("Unable to copy URL:", error);
     }
   };
 
@@ -31,13 +31,29 @@ export default function Message() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 to-violet-600">
+      <Head>
+        <title>{`Friendship Day App for ${friendName}`}</title>
+        <meta
+          name="description"
+          content={`Celebrate Friendship Day with a personalized message for ${friendName}.`}
+        />
+        <meta property="og:title" content="Friendship Day App" />
+        <meta
+          property="og:description"
+          content={`Celebrate Friendship Day with a personalized message for ${friendName}.`}
+        />
+    
+        <meta property="og:type" content="website" />
+      </Head>
       <motion.div
         initial={false} // Disable initial animations
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         className="p-8 bg-white mx-8 max-w-4xl bg-opacity-30 border-2 border-white rounded-lg shadow-lg space-y-4"
       >
-        <h1 className="text-3xl font-semibold text-center text-white">Friendship Messages</h1>
+        <h1 className="text-3xl font-semibold text-center text-white">
+          Friendship Messages
+        </h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -46,9 +62,9 @@ export default function Message() {
         >
           {yourMessage}
         </motion.p>
-      
+
         <div className="flex justify-center space-x-4">
-          {typeof window !== 'undefined' && (
+          {typeof window !== "undefined" && (
             <button
               onClick={copyUrlToClipboard}
               className="py-3 px-6 text-white bg-pink-600 bg-opacity-70 rounded-lg hover:bg-opacity-80 transition duration-300 cursor-pointer"
@@ -57,7 +73,7 @@ export default function Message() {
             </button>
           )}
           <p
-            onClick={() => router.push('/')}
+            onClick={() => router.push("/")}
             className="py-3 px-6 text-white bg-pink-600 bg-opacity-70 rounded-lg hover:bg-opacity-80 transition duration-300 cursor-pointer"
           >
             Back to Home

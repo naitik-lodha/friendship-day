@@ -16,6 +16,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 to-violet-600">
+    
       <div className="p-8 bg-white bg-opacity-30 border-2 border-white rounded-lg shadow-lg space-y-4">
         <h1 className="text-4xl font-bold text-center text-white">Friendship Day App</h1>
         <label htmlFor="yourName" className="block font-medium text-gray-100">

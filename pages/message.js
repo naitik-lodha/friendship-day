@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { getRandomMessage } from "../utils/messages";
+import Head from "next/head";
+
 
 export default function Message() {
   const router = useRouter();
@@ -31,7 +33,8 @@ export default function Message() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 to-violet-600">
-      <Head>
+ 
+  <Head>
         <title>{`Friendship Day App for ${friendName}`}</title>
         <meta
           name="description"
@@ -44,7 +47,10 @@ export default function Message() {
         />
     
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="/preview.jpeg" />
+
       </Head>
+
       <motion.div
         initial={false} // Disable initial animations
         animate={{ opacity: 1, y: 0 }}
@@ -76,7 +82,7 @@ export default function Message() {
             onClick={() => router.push("/")}
             className="py-3 px-6 text-white bg-pink-600 bg-opacity-70 rounded-lg hover:bg-opacity-80 transition duration-300 cursor-pointer"
           >
-            Back to Home
+            Create Your Own
           </p>
         </div>
       </motion.div>
